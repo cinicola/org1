@@ -1,0 +1,19 @@
+<template>
+  <div class="slds-grid slds-box" style="background:white">
+    <div class="slds-col slds-size_1-of-2">
+      <div>
+        <lightning-button-icon-stateful icon-name="utility:preview" selected={onlyUsedState} onclick={handleOnlyUsedButtonClick} alternative-text="Only used" class="slds-m-left_xx-small"></lightning-button-icon-stateful>
+        <lightning-button-icon-stateful icon-name="utility:refresh" selected={autoRefreshState} onclick={handleAutoRefreshButtonClick} alternative-text="Auto refresh" class="slds-m-left_xx-small"></lightning-button-icon-stateful>
+      </div>
+      <ul class="slds-has-dividers_bottom-space">
+        <template for:each={orgLimits.limites} for:item="limite">
+          <li key={limite.name} class="slds-item">
+            <div>{limite.name} - <lightning-formatted-number value={limite.usedLimit}></lightning-formatted-number>/<lightning-formatted-number value={limite.maxLimit}></lightning-formatted-number></div>
+            <lightning-progress-bar value={limite.usedPercent} size="medium" variant="circular"></lightning-progress-bar>
+            <b><lightning-formatted-number value={limite.usedPercentDouble} format-style="percent" maximum-fraction-digits="2"></lightning-formatted-number></b>
+          </li>
+        </template>
+      </ul>
+    </div>
+  </div>
+</template>
