@@ -10,7 +10,7 @@
     </classAccesses>
     <custom>false</custom>
     <tabVisibilities>
-        <tab>Org_Limits_Dashboard</tab>
+        <tab>OrgLimitsDashboard</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>

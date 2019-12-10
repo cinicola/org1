@@ -10,7 +10,7 @@ public class OrgLimitsController {
 
             OrgLimitTO.limite item = new OrgLimitTO.limite();
             item.name = orgLimit.getName();
-            item.maxLimit = orgLimit.getLimit();
+            item.maxLimit = orgLimit.getLimit() > 0 ? orgLimit.getLimit() : 1;
             item.usedLimit = orgLimit.getValue();
             item.usedPercent = Integer.valueOf(Double.valueOf((item.usedLimit)*100/item.maxLimit));
             item.usedPercentDouble = Double.valueOf(item.usedLimit)/Double.valueOf(item.maxLimit);
