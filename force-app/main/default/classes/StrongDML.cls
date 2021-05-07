@@ -14,7 +14,7 @@ public class StrongDML {
 	}
 
 	private static void forceDML(SObject obj, StrongDML.Operation operation) {
-		while (Limitz.getRemainingDMLStatements().percentage >= 90) {
+		while (true) {
 			try {
 				switch on operation {
 					when INS {
@@ -27,9 +27,12 @@ public class StrongDML {
 						delete obj;
 					}
 				}
-				break;
+				return;
 			}
 			catch(Exception e) {
+				if (Limitz.getRemainingDMLStatements().percentage <= 15) {
+					throw e;
+				}
 				System.Debug('>>>> e.getMessage() = ((' + e.getMessage() + '))');
 			}
 		}
