@@ -6,6 +6,7 @@ private class StrongDMLTest {
 		Account account = new Account(Name = 'Test');
 		StrongDML.doInsert(account);
 		StrongDML.doUpdate(account);
+		StrongDML.doUpsert(account);
 		StrongDML.doDelete(account);
 	}
 }
